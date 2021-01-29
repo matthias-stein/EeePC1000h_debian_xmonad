@@ -12,10 +12,14 @@ played (instead of handling piles of paper as in earlier times); and to be used
 for miniture wargames to provide the rules and to take notes of the game for a
 later battle report.
 
-From 2018 to 2020 I used an [[https://github.com/matthias-stein/iOTA360_debian_xmonad][iOTA360]], which's keyboard unfortunately died in Jan 2021. Looking for alternatives, I got a used ASUS EeePC 1000h from eBuy.
+From 2018 to 2020 I used an [[https://github.com/matthias-stein/iOTA360_debian_xmonad][iOTA360]], which's keyboard unfortunately died in
+Jan 2021. Looking for alternatives, I got a used ASUS EeePC 1000h from eBuy.
 
-In 2020 I got into Tiling Window Managers, which are also more suited to these small devices, where I would have issues running GNOME as on my main machine. As my software needs are quite limited for this device and I don't need anything bleeding edge, I decided for the stable Debian. I wanted to make the whole installation process easily re-producible for the
-future.
+In 2020 I got into Tiling Window Managers, which are also more suited to these
+small devices, where I would have issues running GNOME as on my main machine. As
+my software needs are quite limited for this device and I don't need anything
+bleeding edge, I decided for the stable Debian. Also, I wanted to make the whole
+installation process easily re-producible for the future.
 
 The result of this is this "mini distribution" where I install a minimal Debian
 10 "buster" manually, then set up the window manager, the main programs, etc. by
@@ -32,6 +36,14 @@ The programs the script will install are:
 + Inkscape
 + Suckless ST (main terminal)
 + Rxvt, XTerm (as backups)
+
+#+CAPTION: XDM based custom login screen
+[[./README_img1.png]]
+
+#+CAPTION: screenshot with three terminals opened
+[[./README_img2.png]]
+
+* Installation
 
 ** Base Debian System
 
@@ -59,7 +71,7 @@ WiFi device needs to be identified:
 user?> sudo ip a
 #+END_SRC
 
-This provided me with the name of my WiFi card, which in my case is ``wlp1s0``.
+This provided me with the name of my WiFi card, which in my case is =wlp1s0=.
 The card was brought up:
 
 #+BEGIN_SRC bash
@@ -72,9 +84,8 @@ Next I scanned for available WLANs:
 user?> sudo iwlist wlp1s0 scan | grep ESSID
 #+END_SRC
 
-Then I edited ~/etc/network/interfaces~. The required configuration is much
-dependent on the particular setup. The following example works for my EeePC
-with a WPA/WPA2 network, the following lines I appended to the file:
+Then I edited ~/etc/network/interfaces~, the following example works for my
+EeePC with a WPA/WPA2 network, the following lines I *appended* to the file:
 
 #+BEGIN_SRC bash
 # network settings @home
@@ -132,12 +143,10 @@ WiFi and the applet in stalonetray in my xmobar is doing its intended job.
 
 *** Wallpaper
 
-The logo of the wallpaper and loginscreen was taken from
-[the Debian page](https://www.debian.org/logos/index.de.html). I changed the
-colors to those from the
-[Solarized theme](https://ethanschoonover.com/solarized/), made a radial
-background of blues (login) and greys (wallpaper), and put a *Cutout Glow*
-effect on the logo.
+The logo of the wallpaper and loginscreen was taken from [[https://www.debian.org/logos/index.de.html][the Debian page]] I
+changed the colors to those from the [[https://ethanschoonover.com/solarized/][Solarized theme]], made a radial background
+of blues (login) and greys (wallpaper), and put a *Cutout Glow* effect on the
+logo.
 
 
 *** Suckless ST - Simple Terminal
