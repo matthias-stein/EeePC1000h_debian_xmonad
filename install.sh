@@ -65,3 +65,4 @@ else
      systemctl start --user emacs
      sudo ln -sf $HOME/EeePC1000h_debian_xmonad/doom_emacs/doom.sh /usr/local/bin/doom
      sudo chmod +x /usr/local/bin/doom
+fi

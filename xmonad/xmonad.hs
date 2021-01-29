@@ -71,7 +71,7 @@ myModMask       = mod4Mask
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
-myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
+myWorkspaces    = ["1","2","3","4","5"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
@@ -159,7 +159,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- Layouts:
 -- https://betweentwocommits.com/blog/xmonad-layouts-guide
 --
-myLayout = avoidStruts ( full ||| tall ||| mtll ||| col3 ||| grid )
+myLayout = avoidStruts ( full ||| tall ||| mtll ) -- ||| col3 ||| grid )
   where
      -- full - one window uses all of screen, no border
      full = renamed [Replace "Full"] 
@@ -175,16 +175,16 @@ myLayout = avoidStruts ( full ||| tall ||| mtll ||| col3 ||| grid )
      mtll = Mirror tall
 
      -- col3 - three column layout
-     col3 = renamed [Replace "Col3"]
-          $ limitWindows 3
-          $ spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True
-          $ ThreeCol 1 (3/100) (1/3)
+     -- col3 = renamed [Replace "Col3"]
+     --      $ limitWindows 3
+     --      $ spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True
+     --      $ ThreeCol 1 (3/100) (1/3)
 
      -- grid - all windows distributed as evenly as possible
-     grid = renamed [Replace "Grid"]
-          $ limitWindows 12
-          $ spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True
-          $ GridRatio (4/3) 
+     -- grid = renamed [Replace "Grid"]
+     --      $ limitWindows 12
+     --      $ spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True
+     --      $ GridRatio (4/3) 
 
      -- The default number of windows in the master pane
      nmaster = 1
@@ -241,9 +241,9 @@ myLogHook dest = dynamicLogWithPP xmobarPP {
                      ppOutput          = hPutStrLn dest
                    , ppCurrent         = xmobarColor "#268bd2" "" . wrap "[" "]"  -- Visible&Focussed workspace in xmobar
                    , ppVisible         = xmobarColor "#93a1a1" "" . wrap "[" "]"  -- Visible but unfocussed workspace
-                   , ppHidden          = xmobarColor "#93a1a1" "" . wrap "'" "'"  -- Hidden workspaces, 1+ windows
-                   , ppHiddenNoWindows = xmobarColor "#93a1a1" "" . wrap " " " "  -- Hidden workspaces, no windows
-                   , ppTitle           = xmobarColor "#859900" "" . shorten 60    -- Title of active window
+                   , ppHidden          = xmobarColor "#d33682" "" . wrap "" ""    -- Hidden workspaces, 1+ windows
+                   , ppHiddenNoWindows = xmobarColor "#93a1a1" "" . wrap "" ""    -- Hidden workspaces, no windows
+                   , ppTitle           = xmobarColor "#859900" "" . shorten 48    -- Title of active window
                    , ppWsSep           = xmobarColor "#002b36" "" " "             -- Separator between workspaces
                    , ppSep             = xmobarColor "#839496" "" " | "           -- Separator between sections 
                    , ppUrgent          = xmobarColor "#d33682" "" . wrap "!" "!"  -- Urgent workspace
