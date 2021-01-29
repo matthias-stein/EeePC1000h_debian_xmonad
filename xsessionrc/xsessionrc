@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# load resources
+xrdb -merge .Xresources
+
+# ONLY RELEVANT FOR VM TESTS
+./gits_iota/vm_xrandr.sh
+
+# set wallpaper
+feh --bg-center .xmonad/imgs/wall_papr.png
+
+# start system tray
+stalonetray &
+
+# start screensaver
+xscreensaver -no-splash &
+
+# start network manager
+nm-applet --sm-disable &
