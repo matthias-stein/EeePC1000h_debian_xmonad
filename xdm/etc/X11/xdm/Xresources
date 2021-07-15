@@ -1,0 +1,115 @@
+!https://www.x.org/releases/X11R7.5/doc/man/man1/xdm.1.html
+Xcursor.theme:               whiteglass
+
+xlogin*login.translations:   #override \
+	Ctrl<Key>R:          abort-display()\n\
+	<Key>F1:             set-session-argument(failsafe) finish-field()\n\
+	<Key>Delete:         delete-character()\n\
+	<Key>Left:           move-backward-character()\n\
+	<Key>Right:          move-forward-character()\n\
+	<Key>Home:           move-to-begining()\n\
+	<Key>End:            move-to-end()\n\
+	Ctrl<Key>KP_Enter:   set-session-argument(failsafe) finish-field()\n\
+	<Key>KP_Enter:       set-session-argument() finish-field()\n\
+	Ctrl<Key>Return:     set-session-argument(failsafe) finish-field()\n\
+	<Key>Return:         set-session-argument() finish-field()
+
+xlogin*greeting:             Welcome to CLIENTHOST
+xlogin*namePrompt:           Username:
+xlogin*fail:                 Login incorrect or forbidden by policy
+xlogin*geometry:             500x165+262+0
+
+#if WIDTH > 800
+xlogin*greetFont:            -Ubuntu-bold-o-normal--11-240-75-75-p-138-iso8859-1
+xlogin*font:                 -Ubuntu Mono-medium-r-normal--10-180-75-75-p-98-iso8859-1
+xlogin*promptFont:           -Ubuntu Mono-bold-r-normal--10-180-75-75-p-103-iso8859-1
+xlogin*failFont:             -Ubuntu-bold-r-normal--10-180-75-75-p-103-iso8859-1
+xlogin*greetFace:            Ubuntu-11:bold:italic
+xlogin*face:                 Ubuntu Mono-10
+xlogin*promptFace:           Ubuntu Mono-10:bold
+xlogin*failFace:             Ubuntu-9:bold
+#else
+xlogin*greetFont:            -Ubuntu-bold-o-normal--10-120-100-100-p-92-iso8859-1
+xlogin*font:                 -Ubuntu-medium-r-normal--9-120-75-75-p-67-iso8859-1
+xlogin*promptFont:           -Ubuntu-bold-r-normal--9-120-75-75-p-70-iso8859-1
+xlogin*failFont:             -Ubuntu-bold-o-normal--9-140-75-75-p-82-iso8859-1
+xlogin*greetFace:            Ubuntu-10:bold:italic
+xlogin*face:                 Ubuntu-10
+xlogin*promptFace:           Ubuntu-10:bold
+xlogin*failFace:             Ubuntu-9:bold
+#endif
+
+#ifdef COLOR
+xlogin*borderWidth:          0
+
+! frameWidth is the width in pixels of the area around the greeter frame drawn
+! in hiColor and shdColor.
+xlogin*frameWidth:           0
+
+! If set to “true”, when built with XPM support, attempt to use the X
+! Non-Rectangular Window Shape Extension to set the window shape.
+xlogin*useShape:             false
+
+! innerFramesWidth is the width in pixels of the area around text input areas
+! drawn in hiColor and shdColor.
+xlogin*innerFramesWidth:     1
+
+! sepWidth is the width in pixels of the bezeled line between the greeting and
+! input areas drawn in hiColor and shdColor.
+xlogin.Login.sepWidth:       0
+
+! If set to ``true'', a placeholder character  (echoPasswdChar)  will  be  shown
+! for fields normally set to not echo, such as password input.
+xlogin.Login.echoPasswd:     true
+
+! Character to display if echoPasswd is true. The default is ``*''. If set to an
+! empty value, the cursor will advance for each character input, but no text
+! will be drawn.
+xlogin.Login.echoPasswdChar: *
+
+! Raised appearance bezels may be drawn around the greeter frame and text input
+! boxes by setting these resources. hiColor is the highlight color, used on the
+! top and left sides of the frame, and the bottom and right sides of text input
+! areas. shdColor is the shadow color, used on the bottom and right sides of the
+! frame, and the top and left sides of text input areas. The default for both is
+! the foreground color, providing a flat appearance.
+xlogin*shdColor:             #586e75
+xlogin*hiColor:              #93a1a1
+
+xlogin*background:           #002b36
+
+! The color used to display the input typed by the user.
+xlogin*foreground:           #839496
+
+xlogin*greetColor:           #d33682
+xlogin*failColor:            #dc322f
+*Foreground:                 #839496
+*Background:                 #002b36
+#else
+xlogin*borderWidth:          0
+xlogin*frameWidth:           0
+xlogin*innerFramesWidth:     0
+xlogin*shdColor:             black
+xlogin*hiColor:              black
+#endif
+
+!#if PLANES >= 8
+!xlogin*logoFileName: /usr/share/X11/xdm/pixmaps/debian.xpm
+!#else
+!xlogin*logoFileName: /usr/share/X11/xdm/pixmaps/debianbw.xpm
+!endif
+!xlogin*logoPadding: 10
+
+
+XConsole.text.geometry:      480x130
+XConsole.verbose:            true
+XConsole*iconic:             true
+XConsole*font:               fixed
+
+Chooser*geometry:            700x500+0+0
+Chooser*allowShellResize:    false
+Chooser*viewport.forceBars:  true
+Chooser*label.font:          *-Ubuntu-bold-i-normal-*-240-*
+Chooser*label.label:         XDMCP Host Menu from CLIENTHOST
+Chooser*list.font:           -*-*-medium-r-normal-*-*-230-*-*-c-*-iso8859-1
+Chooser*Command.font:        *-Ubuntu-bold-r-normal-*-180-*

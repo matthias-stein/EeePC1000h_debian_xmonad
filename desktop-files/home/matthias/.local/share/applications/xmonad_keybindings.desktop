@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=XMONAD-Keybindings
+Comment=Show keybindings of xmonad.hs
+Exec=/home/matthias/bin/xmonad_keybindings.py
+Icon=help-faq
+Path=/home/matthias/bin/
+Terminal=true
+Type=Application
+Categories=Utility;
+

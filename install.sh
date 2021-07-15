@@ -6,39 +6,34 @@ sudo apt install --no-install-recommends -y \
      xserver-xorg-video-intel \
      xorg xdm qiv policykit-1 \
      xmonad libghc-xmonad-contrib-dev xmobar \
-     dmenu compton \
+     dmenu rofi compton \
      xscreensaver feh \
      network-manager-gnome fdpowermon stalonetray \
-     rxvt-unicode-256color neofetch \
+     konsole rxvt-unicode-256color neofetch \
      ttf-ubuntu-font-family fonts-font-awesome\
-     vim vifm htop firefox-esr  \
-     rsync patch make emacs \
-     gimp inkscape
+     vim vifm htop pcmanfm \
+     rsync patch make stow \
+     gimp inkscape scrot okular emacs firefox-esr
 
 sudo mkdir -p /usr/lib/X11/background
 mkdir -p $HOME/.config
-mkdir -p $HOME/data
-mkdir -p $HOME/.config/systemd/user
 
-ln -sf $HOME/EeePC1000h_debian_xmonad/xmobar/ $HOME/.config/xmobar
-ln -sf $HOME/EeePC1000h_debian_xmonad/xmonad/ $HOME/.xmonad
-ln -sf $HOME/EeePC1000h_debian_xmonad/xscreensaver/xscreensaver $HOME/.xscreensaver
-ln -sf $HOME/EeePC1000h_debian_xmonad/xresources/Xresources $HOME/.Xresources
-ln -sf $HOME/EeePC1000h_debian_xmonad/xsessionrc/xsessionrc $HOME/.xsessionrc
-ln -sf $HOME/EeePC1000h_debian_xmonad/stalonetray/stalonetrayrc $HOME/.stalonetrayrc
-ln -sf $HOME/EeePC1000h_debian_xmonad/config_doom $HOME/.config/doom
+stow desktop-files
+stow profile
+stow scripts
+stow stalonetray
+stow xmobar
+stow xmonad
+stow xresources
+stow xscreensaver
+stow xsessionrc
 
-sudo ln -sf $HOME/EeePC1000h_debian_xmonad/xdm/Xsetup /etc/X11/xdm/Xsetup
-sudo ln -sf $HOME/EeePC1000h_debian_xmonad/xdm/Xresources /etc/X11/xdm/Xresources
-sudo ln -sf $HOME/EeePC1000h_debian_xmonad/xdm/xdm_login.png /usr/lib/X11/background/xdm_login.png
+sudo stow xdm
 
-cd st-0.8.4
-sudo make clean install
-cd ..
+chmod +x $HOME/bin/*.sh
 
-cd grub
-sudo ./modify_grub.sh
-cd ..
+sudo sed -i -e 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=3\nGRUB_HIDDEN_TIMEOUT_QUIET=false\nGRUB_TIMEOUT_STYLE=countdown/g' /etc/default/grub
+sudo update-grub
 
 if grep -Fxq "PS1='\n\[\e[1m\]\[\e[38;2;211;54;130m\]\w\n\[\e[38;2;42;161;152m\]>>> \[\e[0m\]'" $HOME/.bashrc
 then
@@ -54,15 +49,19 @@ else
      echo "neofetch" >> $HOME/.bashrc
 fi
 
-if test -f "${HOME}/.emacs.d/bin/doom"
-then
-     echo "doom emacs exists"
-else
-     git clone --depth 1 https://github.com/hlissner/doom-emacs $HOME/.emacs.d
-     $HOME/.emacs.d/bin/doom install
-     ln -sf $HOME/EeePC1000h_debian_xmonad/doom_emacs/emacs.service $HOME/.config/systemd/user/emacs.service
-     systemctl enable --user emacs
-     systemctl start --user emacs
-     sudo ln -sf $HOME/EeePC1000h_debian_xmonad/doom_emacs/doom.sh /usr/local/bin/doom
-     sudo chmod +x /usr/local/bin/doom
-fi
+# SHUTDOWN WITHOUT SUDO
+sudo groupadd wheel
+sudo usermod -a -G wheel matthias
+sudo visudo
+Add Line:: %wheel ALL= NOPASSWD: /sbin/shutdown /sbin/reboot
+sudo ln -sf $HOME/bin/shutdown.sh /usr/bin/shutdown.sh
+sudo ln -sf $HOME/bin/restart.sh /usr/bin/restart.sh
+
+
+# MAKE UBUINTU KNOWN TO XSCREENSAVER AND OTHER X-PROGRAMMS
+cd /usr/share/fonts/truetype/ubuntu/
+sudo mkfontscale
+sudo mkfontdir
+xset +fp /usr/share/fonts/truetype/ubuntu/
+xset fp rehash
+xrdb -merge ~/.Xdefaults

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=shutdown
+Comment=Shut down computer from rofi drun
+Exec=bash -c "/home/matthias/bin/shutdown.sh"
+Icon=system-shutdown-symbolic
+Terminal=true
+Type=Application
+Categories=Utility;
+

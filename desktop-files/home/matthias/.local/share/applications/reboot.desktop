@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=reboot
+Comment=Reboot computer from rofi drun
+Exec=bash -c "/home/matthias/bin/reboot.sh"
+Icon=system-reboot-symbolic
+Terminal=true
+Type=Application
+Categories=Utility;
+

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=LockScreen
+Comment=Trigger XScreensaver
+Exec=bash -c "/home/matthias/bin/lock_screen.sh"
+Icon=system-lock-screen
+Terminal=true
+Type=Application
+Categories=Utility;
+

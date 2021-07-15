@@ -2,40 +2,44 @@
 #+AUTHOR:   Matthias Stein
 #+STARTUP:  content
 
-* ASUS EeePC 1000h - Debian 10 (Buster) / Xmonad
+* About
 
-In October 2018, I was looking for a small, portable device, that I planned to
-use for gaming. It was meant to be used in RPG sessions where I am the game
-master to provide me with all the rules and supplements (without needing to
-carry tons of books with me, like in earlier times) and the campaign being
-played (instead of handling piles of paper as in earlier times); and to be used
-for miniture wargames to provide the rules and to take notes of the game for a
+In October 2018, I was looking for a small, portable device, that I
+planned to use for gaming. It was meant to be used in RPG sessions
+where I am the game master to provide me with all the rules and
+supplements (without needing to carry tons of books with me, like in
+earlier times) and the campaign being played (instead of handling
+piles of paper as in earlier times); and to be used for miniture
+wargames to provide the rules and to take notes of the game for a
 later battle report.
 
-From 2018 to 2020 I used an [[https://github.com/matthias-stein/iOTA360_debian_xmonad][iOTA360]], which's keyboard unfortunately died in
-Jan 2021. Looking for alternatives, I got a used ASUS EeePC 1000h from eBuy.
+From 2018 to 2020 I used an [[https://github.com/matthias-stein/iOTA360_debian_xmonad][iOTA360]], which's keyboard unfortunately
+died in Jan 2021. Looking for alternatives, I got a used ASUS EeePC
+1000h from eBuy.
 
-In 2020 I got into Tiling Window Managers, which are also more suited to these
-small devices, where I would have issues running GNOME as on my main machine. As
-my software needs are quite limited for this device and I don't need anything
-bleeding edge, I decided for the stable Debian. Also, I wanted to make the whole
-installation process easily re-producible for the future.
+In 2020 I got into Tiling Window Managers, which are also more suited
+to these small devices, where I would have issues running GNOME as on
+my main machine. As my software needs are quite limited for this
+device and I don't need anything bleeding edge, I decided for the
+stable Debian. Also, I wanted to make the whole installation process
+easily re-producible for the future.
 
-The result of this is this "mini distribution" where I install a minimal Debian
-10 "buster" manually, then set up the window manager, the main programs, etc. by
-running a shell script that uses the configuration files from this git
-repository.
+The result of this is this "mini distribution" where I install a
+minimal Debian 10 "buster" manually, then set up the window manager,
+the main programs, etc. by running a shell script that uses the
+configuration files from this git repository.
 
-The programs the script will install are:
+The main programs the script will install are:
 
-+ Doom Emacs
-+ Vim
++ Emacs
 + Firefox
-+ VIFM
 + GIMP
 + Inkscape
-+ Suckless ST (main terminal)
-+ Rxvt, XTerm (as backups)
++ Konsole (default terminal emulator)
++ PCManFM
++ Rxvt, XTerm (backup terminal emulator, just in case)
++ VIFM
++ Vim
 
 #+CAPTION: XDM based custom login screen
 [[./README_img1.png]]
@@ -47,32 +51,32 @@ The programs the script will install are:
 
 ** Base Debian System
 
-I used the [[https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/current/multi-arch/iso-cd/][the non-free multiarch ISO]], which I had ready on a usb stick. I used
-the graphical Debian installer to go though the setup. When the installer asked
-for "Select and install software" I deselected everything except *Standard
-System Utilities*.
+I used the [[https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/current/multi-arch/iso-cd/][the non-free multiarch ISO]], which I had ready on a usb
+stick. I used the graphical Debian installer to go though the
+setup. When the installer asked for "Select and install software" I
+deselected everything except *Standard System Utilities*.
 
-Here occured an error in installing software, but I was not able to pin down
-what it actually was. The system was running afterwards, so it can't have been
-anything essential.
+Here occured an error in installing software, but I was not able to
+pin down what it actually was. The system was running afterwards, so
+it can't have been anything essential.
 
 
 ** First Boot
 
-The first boot after the base installation, after unlocking, I was in a shell.
+The first boot after the base installation, after unlocking, I was in
+a shell.
 
 *** WiFi Connection
 
-First thing to do was to setup a WiFi connection; I mainly followed the
-[[https://wiki.debian.org/WiFi/HowToUse#Command_Line][Debian website]]. First, the
-WiFi device needs to be identified:
+First thing to do was to setup a WiFi connection; I mainly followed
+the [[https://wiki.debian.org/WiFi/HowToUse#Command_Line][Debian website]]. First, the WiFi device needs to be identified:
 
 #+BEGIN_SRC bash
 user?> sudo ip a
 #+END_SRC
 
-This provided me with the name of my WiFi card, which in my case is =wlp1s0=.
-The card was brought up:
+This provided me with the name of my WiFi card, which in my case is
+=wlp1s0=.  The card was brought up:
 
 #+BEGIN_SRC bash
 user?> sudo ip link set wlp1s0 up
@@ -84,8 +88,9 @@ Next I scanned for available WLANs:
 user?> sudo iwlist wlp1s0 scan | grep ESSID
 #+END_SRC
 
-Then I edited ~/etc/network/interfaces~, the following example works for my
-EeePC with a WPA/WPA2 network, the following lines I *appended* to the file:
+Then I edited =/etc/network/interfaces=, the following example works
+for my EeePC with a WPA/WPA2 network, the following lines I *appended*
+to the file:
 
 #+BEGIN_SRC bash
 # network settings @home
@@ -107,12 +112,12 @@ user?> sudo ip a
 
 ** Install Programms
 
-The only program I installed manually (after the obligatory system upgrade) is
-~git~, everthing else is part of the git repository's ~install.sh~ I will clone
-in the next step.
+The only program I installed manually (after the obligatory system
+upgrade) is =git=, everthing else is part of the git repository's
+=install.sh= I will clone in the next step.
 
 
-** iOTA360 - Debian 10 (Buster) / Xmonad git repository
+** EeePC1000h - Debian 10 (Buster) / Xmonad git repository
 
 Now follows the main installation of this git repo.
 
@@ -123,74 +128,72 @@ user?> ./install.sh
 user?> sudo reboot now
 #+END_SRC
 
-For the installation of Doom Emacs, two questions need to be answered, apart
-from that the rest should run automatically. After installation, you can boot
-into the Xmonad window manager.
+The whole installation should run automatically. After installation,
+you can boot into the Xmonad window manager (or rather into the XDM
+login manager).
 
-All the config files are linked to their destination, not copied. That way, when
-updating the git repository, all the config files are updated as well.
+All the config files are linked to their destination, not copied, by
+[[https://www.gnu.org/software/stow/][GNU Stow]]. That way, when updating the git repository, all the config
+files are updated as well.
 
 ** Network Manager
 
-Network manager by default cannot manage network connections managed by ifup. I
-removed the part from ~/etc/network/interfaces~ that I added as described above.
-After a restart (running ~sudo service network-manager restart~ as idicated by
-my Google search did not work for me) network manager was able to connect to the
-WiFi and the applet in stalonetray in my xmobar is doing its intended job.
-
+Network manager by default cannot manage network connections managed
+by ifup. I removed the part from =/etc/network/interfaces= that I
+added as described above. After a restart (running =sudo service
+network-manager restart= as indicated by my Google search did not work
+for me) network manager was able to connect to the WiFi and the applet
+in stalonetray in my xmobar is doing its intended job.
 
 ** Ressources
 
 *** Wallpaper
 
-The logo of the wallpaper and loginscreen was taken from [[https://www.debian.org/logos/index.de.html][the Debian page]] I
-changed the colors to those from the [[https://ethanschoonover.com/solarized/][Solarized theme]], made a radial background
-of blues (login) and greys (wallpaper), and put a *Cutout Glow* effect on the
-logo.
+The logo of the wallpaper and loginscreen was taken from [[https://www.debian.org/logos/index.de.html][the Debian
+page]] I changed the colors to those from the [[https://ethanschoonover.com/solarized/][Solarized theme]], made a
+radial background of blues (login) and greys (wallpaper), and put a
+/Cutout Glow/ effect on the logo.
 
+*** Konsole
+Just a reminder to myself, in =Konsole= the menu is hidden through
+dotfile settings, to show it =Ctr-Shift-M= comes to the rescue.
 
-*** Suckless ST - Simple Terminal
+* Custom Scripts
 
-In a VM I manually installed [ST - Simple Terminal](https://st.suckless.org/)
-by downloading the .tar.gz from the link. Before running
+The following custom scripts get symlinked to =$HOME/bin= and are made
+executable. They are available via shell and rofi (corresponding
+=.desktop= files are created).
 
-#+BEGIN_SRC
-user?> sudo make clean install
-#+END_SRC
-
-in that directory, I patched ST with the following patches, all available on the
-Suckless webpage.
-
-+   alpha
-+   clipboard
-+   scrollback
-+   no-bold-colors
-+   solarized-dark
-
-by running:
-
-#+BEGIN_SRC
-user?> patch -p1 < patch_file.diff
-#+END_SRC
-
-which worked for all patches except the solarized color package. The lines from
-that .diff I copied over manually to replace the color setting in the default
-~config.def.h~.
-
-The above described build is part of the git repository and gets installed by
-~install.sh~.
++ =shutdown= :: - a shell script that runs =/sbin/shutdown now= which
+  was made accessible to the user without sudo priviledges in =install.sh=.
++ =restart= :: a shell script that runs =/sbin/restart now= which was
+  made accessible to the user without sudo priviledges in =install.sh=.
++ =XMONAD-Keybindings= :: a Python script that reads =xmonad.hs=,
+  extracts the key bindings and displays them in a window for easy
+  reference.
 
 * Specifications Asus Eee PC 1000H (Eee PC 1000H Series)
 
   | Processor        | Intel Atom N270 1 x 1.6 GHz, DiamondVille                                                                          |
   | Graphics adapter | Intel Graphics Media Accelerator (GMA) 950, Core: 400 MHz                                                          |
   | Memory           | 1024 MB, DDR2 PC5300                                                                                               |
+  | Memory UPGRADE   | 2048 MB, DDR2 SO                                                                                                   |
   | Display          | 10.20 inch 16:10, 1024 x 600 pixel, glossy: no                                                                     |
   | Mainboard        | Intel 945GM                                                                                                        |
   | Storage          | 160 GB - 5400 rpm, 160 GB, 5400 rpm, Seagate Momentus ST9160310AS                                                  |
+  | Storage UPGRADE  | 160 GB SSD Western Digital                                                                                         |
   | Soundcard        | Intel IDT 92HD71B7 HD Audio (ICH9)                                                                                 |
   | Connections      | 3 USB 2.0, 1 VGA, 1 Kensington Lock, Audio Connections: Headphones, microphone, Card Reader: Multimedia Cardreader |
   | Networking       | Atheros AR8121/AR8113 PCI-E Ethernet Controller (10/100MBit/s), 802.11a/b/g/n (a/b/g/n = Wi-Fi 4), Bluetooth 2.1   |
   | Size             | height x width x depth (in mm): 42 x 192 x 266 ( = 1.65 x 7.56 x 10.47 in)                                         |
   | Battery          | 49 Wh Lithium-Ion, 6600mAh 7.4V                                                                                    |
   | Weight           | 1.45 kg ( = 51.15 oz / 3.2 pounds), Power Supply: 210 g ( = 7.41 oz / 0.46 pounds)                                 |
+
+#+CAPTION: opened up machine
+[[./README_img3.png]]
+
+#+CAPTION: original and replacement memory
+[[./README_img4.png]]
+
+#+CAPTION: original and replacement storage
+[[./README_img5.png]]
