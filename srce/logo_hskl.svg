@@ -13,11 +13,11 @@
    version="1.1"
    preserveAspectRatio="xMidYMid"
    id="svg2"
-   inkscape:version="0.91 r13725"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    sodipodi:docname="logo_hskl.svg"
-   inkscape:export-filename="/home/matthias/data/dist/iota_xmnd/xmobar/logo_0001.png"
-   inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
+   inkscape:export-filename="/home/matthias/EeePC1000h_debian_xmonad/xmobar/home/matthias/.config/xmobar/dracula-logo.png"
+   inkscape:export-xdpi="48"
+   inkscape:export-ydpi="48">
   <metadata
      id="metadata18">
     <rdf:RDF>
@@ -26,7 +26,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -41,50 +41,23 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1011"
+     inkscape:window-width="1020"
+     inkscape:window-height="580"
      id="namedview14"
      showgrid="false"
      inkscape:zoom="14.751576"
-     inkscape:cx="7.101893"
+     inkscape:cx="7.0679983"
      inkscape:cy="9.8059132"
      inkscape:window-x="0"
-     inkscape:window-y="27"
-     inkscape:window-maximized="1"
+     inkscape:window-y="16"
+     inkscape:window-maximized="0"
      inkscape:current-layer="layer2"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0" />
   <g
-     inkscape:groupmode="layer"
-     id="layer1"
-     inkscape:label="yellow pink"
-     style="display:inline"
-     transform="translate(0,-161)">
-    <path
-       style="fill:#b58900"
-       inkscape:connector-curvature="0"
-       id="path6"
-       d="M 1,180 7.0000688,171 1,162 l 4.5,0 6.000069,9 L 5.5,180 1,180 l 0,0 z" />
-    <path
-       style="fill:#d33682"
-       inkscape:connector-curvature="0"
-       id="path8"
-       d="m 7.0000688,180 6.0000692,-9 -6.0000692,-9 4.5000002,0 L 23.5,180 19,180 15.250139,174.37509 11.500069,180 l -4.5000002,0 0,0 z" />
-    <path
-       style="fill:#b58900"
-       inkscape:connector-curvature="0"
-       id="path10"
-       d="m 21.500116,174.75006 -1.999887,-2.99991 6.99991,-2.1e-4 0,3.00012 -5.000023,0 0,0 z" />
-    <path
-       style="fill:#b58900"
-       inkscape:connector-curvature="0"
-       id="path12"
-       d="m 18.500184,170.25006 -2.000093,-2.99991 10.000048,-2.1e-4 0,3.00012 -7.999955,0 0,0 z" />
-  </g>
-  <g
-     inkscape:label="greys"
+     inkscape:label="solarized"
      id="g4242"
      inkscape:groupmode="layer"
      style="display:none"
@@ -94,59 +67,86 @@
        style="fill:#839496"
        inkscape:connector-curvature="0"
        id="path6-3"
-       d="M 1,180 7.0000688,171 1,162 l 4.5,0 6.000069,9 L 5.5,180 1,180 l 0,0 z" />
+       d="M 1,180 7.0000688,171 1,162 h 4.5 l 6.000069,9 L 5.5,180 Z" />
     <path
        style="fill:#586e75"
        inkscape:connector-curvature="0"
        id="path8-6"
-       d="m 7.0000688,180 6.0000692,-9 -6.0000692,-9 4.5000002,0 L 23.5,180 19,180 15.250139,174.37509 11.500069,180 l -4.5000002,0 0,0 z" />
+       d="m 7.0000688,180 6.0000692,-9 -6.0000692,-9 H 11.500069 L 23.5,180 H 19 L 15.250139,174.37509 11.500069,180 Z" />
     <path
        style="fill:#839496"
        inkscape:connector-curvature="0"
        id="path10-7"
-       d="m 21.500116,174.75006 -1.999887,-2.99991 6.99991,-2.1e-4 0,3.00012 -5.000023,0 0,0 z" />
+       d="m 21.500116,174.75006 -1.999887,-2.99991 6.99991,-2.1e-4 v 3.00012 z" />
     <path
        style="fill:#839496"
        inkscape:connector-curvature="0"
        id="path12-5"
-       d="m 18.500184,170.25006 -2.000093,-2.99991 10.000048,-2.1e-4 0,3.00012 -7.999955,0 0,0 z" />
+       d="m 18.500184,170.25006 -2.000093,-2.99991 10.000048,-2.1e-4 v 3.00012 z" />
   </g>
   <g
      inkscape:groupmode="layer"
-     id="layer2"
-     inkscape:label="reds"
+     id="layer1"
+     inkscape:label="nord"
      style="display:none"
      transform="translate(0,-161)"
      sodipodi:insensitive="true">
     <path
-       style="fill:#cb4b16"
+       style="fill:#d8dee9"
+       inkscape:connector-curvature="0"
+       id="path6"
+       d="M 1,180 7.0000688,171 1,162 h 4.5 l 6.000069,9 L 5.5,180 Z" />
+    <path
+       style="fill:#88c0d0"
+       inkscape:connector-curvature="0"
+       id="path8"
+       d="m 7.0000688,180 6.0000692,-9 -6.0000692,-9 H 11.500069 L 23.5,180 H 19 L 15.250139,174.37509 11.500069,180 Z" />
+    <path
+       style="fill:#d8dee9"
+       inkscape:connector-curvature="0"
+       id="path10"
+       d="m 21.500116,174.75006 -1.999887,-2.99991 6.99991,-2.1e-4 v 3.00012 z" />
+    <path
+       style="fill:#d8dee9"
+       inkscape:connector-curvature="0"
+       id="path12"
+       d="m 18.500184,170.25006 -2.000093,-2.99991 10.000048,-2.1e-4 v 3.00012 z" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="dracula"
+     style="display:inline"
+     transform="translate(0,-161)">
+    <path
+       style="fill:#f8f8f2"
        inkscape:connector-curvature="0"
        id="path6-3-3"
-       d="M 1,180 7.0000688,171 1,162 l 4.5,0 6.000069,9 L 5.5,180 1,180 l 0,0 z"
+       d="M 1,180 7.0000688,171 1,162 h 4.5 l 6.000069,9 L 5.5,180 Z"
        inkscape:export-filename="/home/matthias/data/dist/iota_xmnd/xmobar/logo_0003.png"
        inkscape:export-xdpi="9.8459845"
        inkscape:export-ydpi="9.8459845" />
     <path
-       style="fill:#dc322f"
+       style="fill:#6272a4"
        inkscape:connector-curvature="0"
        id="path8-6-5"
-       d="m 7.0000688,180 6.0000692,-9 -6.0000692,-9 4.5000002,0 L 23.5,180 19,180 15.250139,174.37509 11.500069,180 l -4.5000002,0 0,0 z"
+       d="m 7.0000688,180 6.0000692,-9 -6.0000692,-9 H 11.500069 L 23.5,180 H 19 L 15.250139,174.37509 11.500069,180 Z"
        inkscape:export-filename="/home/matthias/data/dist/iota_xmnd/xmobar/logo_0003.png"
        inkscape:export-xdpi="9.8459845"
        inkscape:export-ydpi="9.8459845" />
     <path
-       style="fill:#cb4b16"
+       style="fill:#f8f8f2"
        inkscape:connector-curvature="0"
        id="path10-7-6"
-       d="m 21.500116,174.75006 -1.999887,-2.99991 6.99991,-2.1e-4 0,3.00012 -5.000023,0 0,0 z"
+       d="m 21.500116,174.75006 -1.999887,-2.99991 6.99991,-2.1e-4 v 3.00012 z"
        inkscape:export-filename="/home/matthias/data/dist/iota_xmnd/xmobar/logo_0003.png"
        inkscape:export-xdpi="9.8459845"
        inkscape:export-ydpi="9.8459845" />
     <path
-       style="fill:#cb4b16"
+       style="fill:#f8f8f2"
        inkscape:connector-curvature="0"
        id="path12-5-2"
-       d="m 18.500184,170.25006 -2.000093,-2.99991 10.000048,-2.1e-4 0,3.00012 -7.999955,0 0,0 z"
+       d="m 18.500184,170.25006 -2.000093,-2.99991 10.000048,-2.1e-4 v 3.00012 z"
        inkscape:export-filename="/home/matthias/data/dist/iota_xmnd/xmobar/logo_0003.png"
        inkscape:export-xdpi="9.8459845"
        inkscape:export-ydpi="9.8459845" />

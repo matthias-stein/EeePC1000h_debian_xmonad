@@ -8,7 +8,7 @@ xset fp rehash
 xrdb -merge .Xresources
 
 # set wallpaper
-feh --bg-center .xmonad/imgs/wall_papr.png
+feh --bg-center .xmonad/imgs/wall_papr-nord.png
 
 # start system tray
 stalonetray &

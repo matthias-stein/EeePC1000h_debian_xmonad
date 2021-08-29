@@ -76,8 +76,8 @@ myWorkspaces    = ["1","2","3","4","5"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
-myNormalBorderColor  = "#b58900"
-myFocusedBorderColor = "#d33682"
+myNormalBorderColor  = "#5e81ac"
+myFocusedBorderColor = "#88c0d0"
 
 -- number of windows on workspace
 windowCount :: X (Maybe String)
@@ -245,14 +245,14 @@ myEventHook = mempty
 myLogHook dest = dynamicLogWithPP xmobarPP { 
     ppOutput          = hPutStrLn dest
   -- , ppCurrent         = xmobarColor "#268bd2" "" . wrap "[" "]" 
-  , ppCurrent         = xmobarColor "#073642,#268bd2" "" . wrap " " " "  -- Visible&Focussed workspace in xmobar
-  , ppVisible         = xmobarColor "#073642,#93a1a1" "" . wrap " " " "  -- Visible but unfocussed workspace
-  , ppHidden          = xmobarColor "#d33682" "" . wrap "" ""    -- Hidden workspaces, 1+ windows
-  , ppHiddenNoWindows = xmobarColor "#93a1a1" "" . wrap "" ""    -- Hidden workspaces, no windows
-  , ppTitle           = xmobarColor "#859900" "" . shorten 48    -- Title of active window
-  , ppWsSep           = xmobarColor "#002b36" "" " "             -- Separator between workspaces
-  , ppSep             = xmobarColor "#839496" "" " | "           -- Separator between sections 
-  , ppUrgent          = xmobarColor "#d33682" "" . wrap "!" "!"  -- Urgent workspace
+  , ppCurrent         = xmobarColor "#2e3440,#88c0d0" "" . wrap " " " "  -- Visible&Focussed workspace in xmobar
+  , ppVisible         = xmobarColor "#5e81ac,#2e3440" "" . wrap " " " "  -- Visible but unfocussed workspace
+  , ppHidden          = xmobarColor "#5e81ac,#2e3440" "" . wrap "" ""    -- Hidden workspaces, 1+ windows
+  , ppHiddenNoWindows = xmobarColor "#e5e9f0" "" . wrap "" ""    -- Hidden workspaces, no windows
+  , ppTitle           = xmobarColor "#88c0d0" "" . shorten 48    -- Title of active window
+  , ppWsSep           = xmobarColor "#e5e9f0" "" " "             -- Separator between workspaces
+  , ppSep             = xmobarColor "#e5e9f0" "" " | "           -- Separator between sections 
+  , ppUrgent          = xmobarColor "#d08770" "" . wrap "!" "!"  -- Urgent workspace
   , ppExtras          = [windowCount]                            -- # of windows in focussed workspace
   , ppOrder           = \(ws:l:t:ex) -> [ws,l]++ex++[t]
 }

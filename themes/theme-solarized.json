@@ -1,0 +1,19 @@
+{
+    "name": "Solarized Color Scheme",
+    "href": "https://ethanschoonover.com/solarized/",
+    "logo": "solarized-logo.xpm",
+    "wall": "wall_papr-solarized.png",
+    "xdmb": "xdm-solarized.png",
+    "back": "#002b36",
+    "forg": "#839496",
+    "easy": "#859900",
+    "norm": "#2aa198",
+    "high": "#cb4b16",
+    "prog": "#859900",
+    "wsab": "#268bd2",
+    "wsaf": "#073624",
+    "wsib": "#002b36",
+    "wsif": "#d33682",
+    "bocf": "#268bd2",
+    "bocn": "#d33682"
+}

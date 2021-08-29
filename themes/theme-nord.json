@@ -1,0 +1,19 @@
+{
+    "name": "Nord Color Scheme",
+    "href": "https://www.nordtheme.com/docs/colors-and-palettes",
+    "logo": "nord-logo.xpm",
+    "wall": "wall_papr-nord.png",
+    "xdmb": "xdm-nord.png",
+    "back": "#2e3440",
+    "forg": "#e5e9f0",
+    "easy": "#8fbcbb",
+    "norm": "#a3be8c",
+    "high": "#d08770",
+    "prog": "#88c0d0",
+    "wsab": "#88c0d0",
+    "wsaf": "#2e3440",
+    "wsib": "#2e3440",
+    "wsif": "#5e81ac",
+    "bocf": "#88c0d0",
+    "bocn": "#5e81ac"
+}

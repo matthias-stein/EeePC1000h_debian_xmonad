@@ -1,0 +1,48 @@
+Config { font = "xft:Ubuntu Mono:size=10:antialias=true"
+       , additionalFonts = [
+             "xft:FontAwesome:pixelsize=11" 
+         ]
+       , border = NoBorder 
+       , bgColor = "{{ back }}"
+       , fgColor = "{{ forg }}"
+       , alpha = 255
+       , position = Static { xpos=0 , ypos = 0 , width = 1008 , height = 16 }
+       , textOffset = -1
+       , iconOffset = 6 
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = False
+       , hideOnStart = False
+       , iconRoot = "."
+       , allDesktops = True
+       , overrideRedirect = True
+       , commands = [ Run Cpu [
+                          "--template"  
+                        , "<fn=1>\xF2DB</fn> <total>%"
+                        , "-L", "3", "-H", "50"
+                        , "--normal", "{{ norm }}"
+                        , "--high", "{{ high }}"
+                    ] 10
+                    , Run Memory [
+                          "-t"
+                        , "<fn=1>\xF1C0</fn> <usedratio>%"
+                      ] 10
+                    , Run Swap [
+                          "--template" 
+                        , "<fn=1>\xF021</fn> <usedratio>%"
+                      ] 10
+                    , Run Date "%Y-%m-%d %H:%M" "date" 10
+                    , Run DiskU [("/", "<fn=1>\xF187</fn><usedp>%")] -- /<size>")] 
+                                ["-L", "20", "-H", "50", "-m", "1", "-p", "3",
+                                "--normal", "{{ norm }}", "--high", "{{ high }}",
+                                "--low", "{{ easy }}"] 20
+                    , Run StdinReader
+         ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "<icon=.config/xmobar/{{ logo }}/> | \
+                     \%StdinReader%\
+                     \}{\
+                     \%disku% | %cpu% | %memory% | %swap% | \
+                     \%date%       " 
+       }

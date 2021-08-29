@@ -1,0 +1,15 @@
++ name :: name of color scheme
++ href :: homepage of color scheme, for quick reference of color codes
++ logo :: logo file (=.xpm=) to be displayed in =xmobar=, left
++ back :: background color
++ forg :: foreground color
++ easy :: color for better than normal status
++ norm :: color for normal status
++ high :: color for high status
++ prog :: program name in =xmobar=
++ wsab :: =xmobar=, workspace active, background
++ wsaf :: =xmobar=, workspace active, foreground
++ wsib :: =xmobar=, workspace inactive, background
++ wsif :: =xmobar=, workspace inactive, foreground
++ bocn :: =xmonad=, border color, normal
++ bocf :: =xmonad=, border color, focussed

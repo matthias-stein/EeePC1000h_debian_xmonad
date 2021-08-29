@@ -1,0 +1,19 @@
+{
+    "name": "Nord Color Scheme",
+    "href": "https://draculatheme.com/contribute",
+    "logo": "dracula-logo.xpm",
+    "wall": "wall_papr-dracula.png",
+    "xdmb": "xdm-dracula.png",
+    "back": "#282a36",
+    "forg": "#f8f8f2",
+    "easy": "#8be9fd",
+    "norm": "#50fa7b",
+    "high": "#ffb86c",
+    "prog": "#50fa7b",
+    "wsab": "#bd93f9",
+    "wsaf": "#282a36",
+    "wsib": "#282a36",
+    "wsif": "#6272a4",
+    "bocf": "#6272a4",
+    "bocn": "#44475a"
+}

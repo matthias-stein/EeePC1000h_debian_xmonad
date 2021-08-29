@@ -4,7 +4,7 @@ import re
 from pathlib import Path
 from textwrap import wrap, indent
 
-path = Path('/home/matthias/EeePC1000h_debian_xmonad/xmonad/xmonad.hs')
+path = Path('/home/matthias/.xmonad/xmonad.hs')
 # re01 = re.compile('(\("M-)(.+)(--)')  # identifies line with shortcut definition
 re01 = re.compile(r'\("M-')  # identifies line with shortcut definition
 re02 = re.compile(r'"\s*,\s')  # splits shortcut from command/comment
